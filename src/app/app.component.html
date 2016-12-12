@@ -2,5 +2,13 @@
   {{title}}
 </h1>
 
-I doubt this will work:
-<pre>{{puns | async}}</pre>
+This totes wurkz.
+<ul>
+  <li *ngFor="let pun of (puns | async)">
+    <a routerLink="pun/{{pun.id}}"> {{pun.id}} - {{pun.text}}</a>
+  </li>
+</ul>
+
+<form>
+  
+</form>
