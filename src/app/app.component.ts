@@ -14,6 +14,11 @@ export class AppComponent {
 
   constructor(af: AngularFire) {
     this.puns = af.database.object('https://sopunny-cfb21.firebaseio.com/puns')
-      .map(x => x.p0.text)
+      .map(puns =>
+        Object.keys(puns)
+          .filter(key => key.indexOf('$') !== 0)
+          .map(key => Object.assign({ id: key }, puns[key]))
+        )
+    )
   }
 }
